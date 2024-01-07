@@ -57,6 +57,7 @@ export default {
 			if (url.pathname === `/secure/${country}`){
 				// Get the flag asset from the R2 bucket using the country code as the key
 				const image = await env.MY_BUCKET.get(`${country}.png`)
+				
 				if (image === null) {
 					return new Response('Image Not Found', {status : 404});
 				}
